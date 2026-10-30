@@ -1,0 +1,115 @@
+#background-image {
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--color-primary) 15%, transparent) 1.2px, transparent 2px);
+  background-size: 1.5rem 1.5rem;
+  /*Source--> https://www.magicpattern.design/tools/css-backgrounds*/
+}
+html.plain-mode *,
+html.plain-mode *::before,
+html.plain-mode *::after {
+  all: revert !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+html {
+  scroll-padding-top: var(--header-offset);
+}
+
+header nav a[aria-current="location"] {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+body.dark #theme-icon {
+  filter: invert(1);
+}
+body.dark #style-toggle img {
+  filter: invert(1);
+}
+
+
+#theme-icon {
+  transform-origin: center;
+}
+#theme-icon.theme-spin {
+  animation: theme-spin 1s ease-in-out;
+}
+#style-icon.style-spin {
+  animation: theme-spin 1s ease-in-out;
+}
+html.plain-mode #style-icon.style-spin {
+  animation: theme-spin 1s ease-in-out !important;
+}
+@keyframes theme-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+#contact {
+  min-height: calc(100svh - var(--header-offset));
+  view-timeline-name: --contact-timeline;
+  view-timeline-axis: block;
+  view-timeline-inset: var(--header-offset) 0px;
+}
+@supports not (animation-timeline: scroll()) {
+  body::before {
+    content:"Sorry, your browser doesn't support animation-timeline";
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    translate: -50% 0;
+    font-size: 0.8rem;
+    z-index: 200;
+  }
+}
+@layer scramble {
+  @property --page-offset {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 75;
+  }
+  :root {
+    --cta: var(--color-primary);
+  }
+  /* Inspo --> https://freefrontend.com/css-scroll-effects/#2025-11-04-sticky-sidebar-with-css-position-sticky-l */
+  .scramble {
+    opacity: 0; 
+    animation-name: --page-scroll, --contact-visibility;
+    animation-duration: 1s, 1s;
+    animation-timing-function: steps(100), linear;
+    animation-timeline: --contact-timeline, --contact-timeline;
+    animation-range: entry 0% entry 100%, cover;
+    animation-fill-mode: both; 
+    > * {
+      perspective: 300px;
+      transform-style: preserve-3d;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      &:nth-child(2) {color: var(--cta);}
+      > span {
+        --i: sibling-index();
+        --dir: calc(1 - 2 * mod(var(--i), 2));
+        --rand: calc(mod((var(--i) * 7 + 20), 4) - 4);
+        --wave: sin(calc(var(--i) * 17deg));
+        --start-y: calc((var(--rand) + var(--wave)) * var(--dir) * var(--page-offset) * 1px);
+        --z: calc(abs(var(--rand) * 2 + var(--wave)));
+        --depth-factor: calc(var(--page-offset) * 0.02);
+        --start-z: calc(var(--z) * var(--depth-factor) * 13px);
+        transform: translate3d(0, var(--start-y), var(--start-z));
+        display: inline-block;
+        position: relative;
+        font-size: inherit;
+      }
+    }
+  }
+  @keyframes --page-scroll {
+    to {--page-offset: 0;}
+  }
+  @keyframes --contact-visibility {
+    0%, 100% {opacity: 0}
+    15%, 85% {opacity: 1}
+  }
+}
