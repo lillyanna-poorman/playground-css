@@ -12,7 +12,7 @@ date: 10/23/26
 <style id="custom-styles" type="text/tailwindcss">
   @custom-variant dark (&:where(.dark, .dark *));
   @theme {
-  --color-primary: hsl(321.66deg 29.15% 60.63%);
+  --color-primary: hsl(186deg 25% 40%);
   --font-brand: "Brush Script MT", cursive;
   }
 </style>
@@ -21,9 +21,6 @@ date: 10/23/26
   
   <div id="hero" class="min-h-screen grid grid-col-1 justify-items-center items-end">
     <h1 class="hero-move text-6xl text-center tracking-wide font-brand">Playground CSS</h1>
-    <!-- <div class="flex border-1 rounded-full justify-center place-items-center mb-4 px-2 py-6 bg-primary">
-      <svg class="position animate-bounce w-[24px] h-[24px]"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-down preview-icon"><path d="M8 18L12 22L16 18"/><path d="M12 2V22"/></svg>
-    </div> -->
     <div class="icon -translate-y-16 scale-200">
       <svg class="stroke-primary" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mouse">
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -39,7 +36,7 @@ date: 10/23/26
   <header class="sticky top-0 z-100 flex flex-row flex-wrap justify-between items-end p-4 border-b-2 backdrop-blur-sm bg-zinc-300/30 dark:bg-zinc-800/50 transition-colors duration-600 ease-in-out">
     <a class="font-brand min-w-32 hover:text-primary" href="#hero">Playground CSS</a>
     <nav class="flex flex-row gap-4 items-end">
-      <a class="hover:text-primary active:font-bold" href="#work">Work</a>
+      <a class="hover:text-primary active:font-bold" href="#skills">Skills</a>
       <a class="hover:text-primary active:font-bold" href="#about">About</a>
       <a class="hover:text-primary active:font-bold" href="#contact">Contact</a>
       <button class="hover:bg-primary p-2 border-1 rounded-full" id="style-toggle" aria-label="Turn styles off">
@@ -53,8 +50,8 @@ date: 10/23/26
 
   <main class="min-h-[200dvh]">
 
-    <section id="work" class="grid grid-cols-2 gap-4 p-12">
-      <div class="h-screen sticky top-0 grid place-items-center">
+    <section id="skills" class="grid sm:grid-cols-2 gap-4 p-12">
+      <div class="sm:h-screen sm:sticky top-0 grid place-items-center">
         <div class="flex flex-col gap-4 max-w-md">
           <h3 class="text-3xl">Areas of <span class="text-primary">Practice</span></h3>
           <p>Exercising skills for fluency, so that less thought goes into the <span class="italic">how</span>, but more into the <span class="italic">what</span> and <span class="italic">why</span>.</p>
@@ -64,31 +61,31 @@ date: 10/23/26
         <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md min-h-32 flex flex-col gap-2">
           <h4 class="text-xl">Working with CSS</h4>
           <p class="text-sm">Learning raw, common CSS properties.</p>
-          <img src="img/css.jpg" alt="Screenshot of Project One" class="mt-4 rounded-md shadow-sm">         
+          <img src="img/css.jpg" alt="Example of styling a webpage with CSS" class="max-h-mt-4 rounded-md shadow-sm">
         </div>
         <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md min-h-32 flex flex-col gap-2">
           <h4 class="text-xl">JavaScript</h4>
           <p class="text-sm">Exploring motion and space by combining Javascript with CSS.</p>
-          <img src="img/motion.jpg" alt="Screenshot of Project One" class="mt-4 rounded-md shadow-sm">         
+          <img src="img/motion.jpg" alt="JavaScript example exploring motion and animation" class="mt-4 rounded-md shadow-sm">
         </div>
         <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md min-h-32 flex flex-col gap-2">
           <h4 class="text-xl">GitHub</h4>
           <p class="text-sm">Version control to keep version history clear.</p>
-          <img src="img/branches.jpg" alt="Screenshot of Project One" class="mt-4 rounded-md shadow-sm">         
+          <img src="img/branches.jpg" alt="Git branches representing version history" class="mt-4 rounded-md shadow-sm">
         </div>
       </div>
     </section>
 
-    <section id="about" class="grid grid-cols-2 gap-4 p-12">
-      <div class="sticky top-[calc(var(--header-offset)_+_2rem)] h-[calc(100dvh_-_var(--header-offset)_-_2rem)]">
-        <img src="img/designing.jpg" alt="Designing Process" class="max-h-full rounded-md shadow-sm">
+    <section id="about" class="grid sm:grid-cols-2 gap-4 p-12">
+      <div class="sm:sticky top-[calc(var(--header-offset)_+_2rem)] sm:h-[calc(100dvh_-_var(--header-offset)_-_2rem)]">
+        <img src="img/designing.jpg" alt="A design process in progress" class="max-h-full rounded-md shadow-sm">
       </div>
-      <div class="flex flex-col gap-6 px-12">
+      <div class="flex flex-col gap-6 px-2 sm:px-12">
         <h3 class="text-3xl">As a designer, why do <span class="text-primary">I even bother</span> investing learning to <span class="italic">code?</span></h3>
         <p>First off, let's clarify, just because I can do both does not mean I am both. The defining difference is that while I can code and enjoy the satisfaction of buiding something on my own, I do not enjoy the process of coding; I like the prize, not the race. Design is different, I love the run, the training, the talk as well as the end result. Because of that, I focus my primary resources and offer my primary skills as a designer.</p>
         <p>With that, in the age of AI, why bother learning CSS and coding? Designers should be able to vibe code, right? Such a mindset is like asking a ballet dancer to use a chainsaw. AI is a powerful too, but put in the hands of someone unfamiliar with not only coding practices, basic digital safety could result in inefficency and even unattended consequences. Thinking like a coder involves knowing what decisions make it easier for humans to read, how code can be written for certain team needs, and what to do when AI cannot understand the prompt or intended request.</p>
         <p>I do not claim to know everything or be an experience coder. However, I do believe that understanding to basics of coding is important to my personal career and offer a willingness to learn in this area. Other benfits include:</p>
-        <ul class="list-disc list-inside">
+        <ul class="list-disc list-outside pl-5">
           <li>Frontend relief for coders focused on backend or API development</li>
           <li>Better communication with development teams</li>
           <li>Design understanding that considers technical constraints</li>
@@ -128,8 +125,16 @@ date: 10/23/26
 
   <footer class="mt-2 text-center p-8 opacity-55 text-sm" ><p>© 2026 Lillyanna Poorman — Playground CSS</p></footer>
 
-  <div id="styleToggleModel">
-    <p></p>
+  <div id="styleToggleModel" class="fixed inset-0 z-100 grid place-items-center bg-black/50 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="styleToggleTitle" hidden>
+    <div class="max-w-lg rounded-lg bg-zinc-800 dark:bg-zinc-300 p-6 text-zinc-900 shadow-xl">
+      <h3 id="styleToggleTitle" class="mb-3 text-2xl border-b-1 pb-2">Notice</h3>
+      <p class="mb-6">This button removes most of the styles from this page so you can compare how much CSS contributes to the design. To restore the styles, use the paintbrush button again.</p>
+      <p>Want to see what the webpage looks like without style?</p>
+      <div class="flex justify-end gap-3 pt-4">
+        <button id="styleToggleClose" class="hover:bg-primary p-1 border-1 rounded-full px-4">No</button>
+        <button id="proceedStyleToggle" class="hover:bg-primary p-1 border-1 rounded-full px-4">Yes, Proceed</button>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>

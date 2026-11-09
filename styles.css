@@ -1,5 +1,7 @@
-
 /* setup */
+:root {
+  --header-offset: 4rem;
+}
 html {
   scroll-padding-top: var(--header-offset);
 }
@@ -49,10 +51,10 @@ html.plain-mode #style-icon.style-spin {
 
 /* Inspo --> https://freefrontend.com/css-scroll-effects/#2025-11-04-sticky-sidebar-with-css-position-sticky-l */
 #contact {
-  min-height: calc(100svh - var(--header-offset));
+  min-height: calc(120svh - var(--header-offset));
   view-timeline-name: --contact-timeline;
   view-timeline-axis: block;
-  view-timeline-inset: var(--header-offset) 0px;
+  view-timeline-inset: var(--header-offset) 50%;
 }
 @supports not (animation-timeline: scroll()) {
   body::before {

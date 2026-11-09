@@ -55,13 +55,24 @@ themeToggle.addEventListener("click", () => {
 
 const styleToggle = document.getElementById("style-toggle");
 const styleIcon = document.getElementById("style-icon");
+const styleToggleModal = document.getElementById("styleToggleModel");
+const closeStyleToggleModal = document.getElementById("styleToggleClose");
+const proceedStyleToggle = document.getElementById("proceedStyleToggle");
 function updateStyleToggleLabel() {
   const plainMode = document.documentElement.classList.contains("plain-mode");
   const action = plainMode ? "on" : "off";
   styleToggle.setAttribute("aria-label", `Turn styles ${action}`);
 }
 updateStyleToggleLabel();
-styleToggle.addEventListener("click", async () => {
+function openStyleToggleModal() {
+  styleToggleModal.hidden = false;
+  proceedStyleToggle.focus();
+}
+function hideStyleToggleModal() {
+  styleToggleModal.hidden = true;
+  styleToggle.focus();
+}
+async function toggleStyles() {
   const plainMode = document.documentElement.classList.contains("plain-mode");
   const animationFinished = spinIcon(styleIcon, "style-spin");
   styleToggle.disabled = true;
@@ -77,7 +88,29 @@ styleToggle.addEventListener("click", async () => {
     await animationFinished;
   }
   styleToggle.disabled = false;
-});  
+}
+styleToggle.addEventListener("click", () => {
+  if (document.documentElement.classList.contains("plain-mode")) {
+    void toggleStyles();
+    return;
+  }
+  openStyleToggleModal();
+});
+closeStyleToggleModal.addEventListener("click", hideStyleToggleModal);
+proceedStyleToggle.addEventListener("click", () => {
+  hideStyleToggleModal();
+  void toggleStyles();
+});
+styleToggleModal.addEventListener("click", (event) => {
+  if (event.target === styleToggleModal) {
+    hideStyleToggleModal();
+  }
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !styleToggleModal.hidden) {
+    hideStyleToggleModal();
+  }
+});
 
 const header = document.querySelector("header");
 if (header) {
@@ -97,10 +130,10 @@ const sections = sectionLinks
   .map(link => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
 function updateCurrentSection() {
-  const headerBottom = header.getBoundingClientRect().bottom;
+  const activationLine = header.getBoundingClientRect().bottom + 1;
   let currentSection = null;
   for (const section of sections) {
-    if (section.getBoundingClientRect().top <= headerBottom) {
+    if (section.getBoundingClientRect().top <= activationLine) {
       currentSection = section;
     }
   }
