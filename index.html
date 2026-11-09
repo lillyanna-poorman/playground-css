@@ -55,35 +55,49 @@ date: 10/23/26
 
     <section id="work" class="grid grid-cols-2 gap-4 p-12">
       <div class="h-screen sticky top-0 grid place-items-center">
-        <h3 class="text-3xl">Selected Projects</h3>
+        <div class="flex flex-col gap-4 max-w-md">
+          <h3 class="text-3xl">Areas of <span class="text-primary">Practice</span></h3>
+          <p>Exercising skills for fluency, so that less thought goes into the <span class="italic">how</span>, but more into the <span class="italic">what</span> and <span class="italic">why</span>.</p>
+        </div>
       </div>
       <div class="flex flex-col gap-4">
-        <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md min-h-32 ease-in-out">
-          <h4>Project One</h4>
-          <p>Short description of your project.</p>
+        <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md min-h-32 flex flex-col gap-2">
+          <h4 class="text-xl">Working with CSS</h4>
+          <p class="text-sm">Learning raw, common CSS properties.</p>
+          <img src="img/css.jpg" alt="Screenshot of Project One" class="mt-4 rounded-md shadow-sm">         
         </div>
-        <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md min-h-32 ease-in-out">
-          <h4>Project Two</h4>
-          <p>Short description of your project.</p>
+        <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md min-h-32 flex flex-col gap-2">
+          <h4 class="text-xl">JavaScript</h4>
+          <p class="text-sm">Exploring motion and space by combining Javascript with CSS.</p>
+          <img src="img/motion.jpg" alt="Screenshot of Project One" class="mt-4 rounded-md shadow-sm">         
         </div>
-        <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md min-h-32 ease-in-out">
-          <h4>Project Three</h4>
-          <p>Short description of your project.</p>
-        </div>
-        <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md min-h-32 ease-in-out">
-          <h4>Project Three</h4>
-          <p>Short description of your project.</p>
+        <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md min-h-32 flex flex-col gap-2">
+          <h4 class="text-xl">GitHub</h4>
+          <p class="text-sm">Version control to keep version history clear.</p>
+          <img src="img/branches.jpg" alt="Screenshot of Project One" class="mt-4 rounded-md shadow-sm">         
         </div>
       </div>
     </section>
 
-    <section id="about" class="min-h-screen flex flex-col gap-4 p-12">
-      <h3>About Me</h3>
-      <p>Write a short bio about your background, skills, and interests.</p>
+    <section id="about" class="grid grid-cols-2 gap-4 p-12">
+      <div class="sticky top-[calc(var(--header-offset)_+_2rem)] h-[calc(100dvh_-_var(--header-offset)_-_2rem)]">
+        <img src="img/designing.jpg" alt="Designing Process" class="max-h-full rounded-md shadow-sm">
+      </div>
+      <div class="flex flex-col gap-6 px-12">
+        <h3 class="text-3xl">As a designer, why do <span class="text-primary">I even bother</span> investing learning to <span class="italic">code?</span></h3>
+        <p>First off, let's clarify, just because I can do both does not mean I am both. The defining difference is that while I can code and enjoy the satisfaction of buiding something on my own, I do not enjoy the process of coding; I like the prize, not the race. Design is different, I love the run, the training, the talk as well as the end result. Because of that, I focus my primary resources and offer my primary skills as a designer.</p>
+        <p>With that, in the age of AI, why bother learning CSS and coding? Designers should be able to vibe code, right? Such a mindset is like asking a ballet dancer to use a chainsaw. AI is a powerful too, but put in the hands of someone unfamiliar with not only coding practices, basic digital safety could result in inefficency and even unattended consequences. Thinking like a coder involves knowing what decisions make it easier for humans to read, how code can be written for certain team needs, and what to do when AI cannot understand the prompt or intended request.</p>
+        <p>I do not claim to know everything or be an experience coder. However, I do believe that understanding to basics of coding is important to my personal career and offer a willingness to learn in this area. Other benfits include:</p>
+        <ul class="list-disc list-inside">
+          <li>Frontend relief for coders focused on backend or API development</li>
+          <li>Better communication with development teams</li>
+          <li>Design understanding that considers technical constraints</li>
+        </ul>
+      </div>
     </section>
     
     <section id="contact">
-      <a class="scramble scramble-catch group fixed left-[50%] top-[50%] -translate-1/2 flex align-center flex-wrap gap-[1ch] p-2 text-5xl" href="https://github.com/lillyanna-poorman" target="_blank" inert>
+      <a class="scramble group fixed left-[50%] top-[50%] -translate-1/2 flex align-center flex-wrap gap-[1ch] p-2 text-5xl" href="https://github.com/lillyanna-poorman" target="_blank" inert>
         <p aria-label="Let's">
           <span aria-hidden="true">L</span>
           <span aria-hidden="true">e</span>
@@ -113,6 +127,10 @@ date: 10/23/26
   </main>
 
   <footer class="mt-2 text-center p-8 opacity-55 text-sm" ><p>© 2026 Lillyanna Poorman — Playground CSS</p></footer>
+
+  <div id="styleToggleModel">
+    <p></p>
+  </div>
 
   <script src="script.js"></script>
 </body>

@@ -1,3 +1,16 @@
+
+/* setup */
+html {
+  scroll-padding-top: var(--header-offset);
+}
+
+/* nav links */
+header nav a[aria-current="location"] {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* page theme */
 #background-image {
   background-image: radial-gradient(circle, color-mix(in srgb, var(--color-primary) 15%, transparent) 1.2px, transparent 2px);
   background-size: 1.5rem 1.5rem;
@@ -10,24 +23,12 @@ html.plain-mode *::after {
   animation: none !important;
   transition: none !important;
 }
-
-html {
-  scroll-padding-top: var(--header-offset);
-}
-
-header nav a[aria-current="location"] {
-  color: var(--color-primary);
-  font-weight: 700;
-}
-
 body.dark #theme-icon {
   filter: invert(1);
 }
 body.dark #style-toggle img {
   filter: invert(1);
 }
-
-
 #theme-icon {
   transform-origin: center;
 }
@@ -46,6 +47,7 @@ html.plain-mode #style-icon.style-spin {
   }
 }
 
+/* Inspo --> https://freefrontend.com/css-scroll-effects/#2025-11-04-sticky-sidebar-with-css-position-sticky-l */
 #contact {
   min-height: calc(100svh - var(--header-offset));
   view-timeline-name: --contact-timeline;
@@ -72,7 +74,6 @@ html.plain-mode #style-icon.style-spin {
   :root {
     --cta: var(--color-primary);
   }
-  /* Inspo --> https://freefrontend.com/css-scroll-effects/#2025-11-04-sticky-sidebar-with-css-position-sticky-l */
   .scramble {
     opacity: 0; 
     animation-name: --page-scroll, --contact-visibility;
