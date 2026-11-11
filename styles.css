@@ -25,6 +25,9 @@ html.plain-mode *::after {
   animation: none !important;
   transition: none !important;
 }
+html.plain-mode .image {
+  width: 50% !important;
+}
 body.dark #theme-icon {
   filter: invert(1);
 }
@@ -49,12 +52,59 @@ html.plain-mode #style-icon.style-spin {
   }
 }
 
+/* skills orbit transformations */
+@layer skills-effect {
+  .orbit::before,
+  .orbit::after {
+    position: absolute;
+    inset: 28px;
+    z-index: 0;
+    border: 1px solid var(--accent, var(--color-primary));
+    border-radius: 50%;
+    content: "";
+  }
+  .orbit {
+    container-type: inline-size;
+    border-color: var(--accent, var(--color-primary));
+  }
+  #featuredTitle {
+    border-color: var(--accent, var(--color-primary));
+  }
+  #orbitTrack {
+    z-index: 1;
+    --rotation: 0deg;
+    transform: rotate(var(--rotation));
+    transition: transform 700ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  }
+  .orbit-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(-50cqi + 28px)) rotate(calc(-1 * var(--angle))) scale(var(--badge-scale, 1));
+    transition: transform 250ms ease;
+  }
+  .orbit-badge img {
+    transform: rotate(calc(-1 * var(--rotation)));
+    transition: transform 700ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  }
+  .orbit-badge[aria-pressed="true"] {
+    --badge-scale: 2;
+  }
+}
+
+
 /* Inspo --> https://freefrontend.com/css-scroll-effects/#2025-11-04-sticky-sidebar-with-css-position-sticky-l */
+/*contact scramble animation*/
 #contact {
-  min-height: calc(120svh - var(--header-offset));
+  min-height: calc(155svh - var(--header-offset));
   view-timeline-name: --contact-timeline;
   view-timeline-axis: block;
-  view-timeline-inset: var(--header-offset) 50%;
+  view-timeline-inset: var(--header-offset) 55%;
 }
 @supports not (animation-timeline: scroll()) {
   body::before {
@@ -67,31 +117,26 @@ html.plain-mode #style-icon.style-spin {
     z-index: 200;
   }
 }
-@layer scramble {
+@layer contact-effects {
   @property --page-offset {
     syntax: "<number>";
     inherits: true;
     initial-value: 75;
   }
-  :root {
-    --cta: var(--color-primary);
-  }
-  .scramble {
+  .contact-visibility {
     opacity: 0; 
-    animation-name: --page-scroll, --contact-visibility;
-    animation-duration: 1s, 1s;
-    animation-timing-function: steps(100), linear;
-    animation-timeline: --contact-timeline, --contact-timeline;
-    animation-range: entry 0% entry 100%, cover;
-    animation-fill-mode: both; 
+    animation: --contact-visibility 1s linear both;
+    animation-timeline: --contact-timeline;
+    animation-range: cover;
+  }
+  .unscramble {
+    animation: --page-scroll 1s steps(100) both;
+    animation-timeline: --contact-timeline;
+    animation-range: entry 0% entry 155%;
     > * {
       perspective: 300px;
       transform-style: preserve-3d;
-      margin: 0;
       display: flex;
-      align-items: center;
-      gap: 0;
-      &:nth-child(2) {color: var(--cta);}
       > span {
         --i: sibling-index();
         --dir: calc(1 - 2 * mod(var(--i), 2));

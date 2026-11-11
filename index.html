@@ -13,6 +13,7 @@ date: 10/23/26
   @custom-variant dark (&:where(.dark, .dark *));
   @theme {
   --color-primary: hsl(186deg 25% 40%);
+  --color-hover: hsl(186deg 30% 50%);
   --font-brand: "Brush Script MT", cursive;
   }
 </style>
@@ -34,15 +35,16 @@ date: 10/23/26
   </div>
 
   <header class="sticky top-0 z-100 flex flex-row flex-wrap justify-between items-end p-4 border-b-2 backdrop-blur-sm bg-zinc-300/30 dark:bg-zinc-800/50 transition-colors duration-600 ease-in-out">
-    <a class="font-brand min-w-32 hover:text-primary" href="#hero">Playground CSS</a>
+    <a class="font-brand min-w-32 hover:text-hover" href="#hero">Playground CSS</a>
     <nav class="flex flex-row gap-4 items-end">
-      <a class="hover:text-primary active:font-bold" href="#skills">Skills</a>
-      <a class="hover:text-primary active:font-bold" href="#about">About</a>
-      <a class="hover:text-primary active:font-bold" href="#contact">Contact</a>
-      <button class="hover:bg-primary p-2 border-1 rounded-full" id="style-toggle" aria-label="Turn styles off">
+      <a class="hover:text-hover active:font-bold" href="#skills">Skills</a>
+      <a class="hover:text-hover active:font-bold" href="#work">Work</a>
+      <a class="hover:text-hover active:font-bold" href="#about">About</a>
+      <a class="hover:text-hover active:font-bold" href="#contact">Contact</a>
+      <button class="hover:bg-hover p-2 border-1 rounded-full" id="style-toggle" aria-label="Turn styles off">
         <img id="style-icon" src="icons/paintbrush-vertical.svg" alt="" class="block h-5 w-5">
       </button>
-      <button class="hover:bg-primary p-2 border-1 text-xs rounded-full" id="theme-toggle" aria-label="Switch Theme Mode">
+      <button class="hover:bg-hover p-2 border-1 text-xs rounded-full" id="theme-toggle" aria-label="Switch Theme Mode">
         <img id="theme-icon" src="icons/sun.svg" alt="" class="block h-5 w-5">
       </button>
     </nav>
@@ -50,41 +52,65 @@ date: 10/23/26
 
   <main class="min-h-[200dvh]">
 
-    <section id="skills" class="grid sm:grid-cols-2 gap-4 p-12">
+    <section id="skills" class="relative grid sm:grid-cols-2 gap-16 p-12">     
+      <div class="relative border-1 orbit mx-auto mb-4 aspect-square w-[min(100%,380px)] rounded-full">
+        <div id="orbitTrack" class="absolute inset-0">
+          <button class="orbit-badge" data-skill="0" aria-label="HTML" aria-pressed="false" style="--angle: 0deg"><img src="icons/html.png" alt=""></button>
+          <button class="orbit-badge" data-skill="1" aria-label="CSS" aria-pressed="false" style="--angle: 90deg"><img src="icons/css.png" alt=""></button>
+          <button class="orbit-badge" data-skill="2" aria-label="JavaScript" aria-pressed="false" style="--angle: 180deg"><img src="icons/javascript.png" alt=""></button>
+          <button class="orbit-badge" data-skill="3" aria-label="Git" aria-pressed="false" style="--angle: 270deg"><img src="icons/git.png" alt=""></button>
+        </div>
+      </div>
+      <div class="sm:sticky top-0 grid place-items-center">
+        <div class="flex flex-col gap-4 max-w-md">
+          <h3 id="featuredTitle" class="text-3xl border-b-2 pb-2">Areas of Practice</h3>
+          <div id="featuredDescription" class="flex flex-col gap-2">
+            <p> Exercising skills for fluency, so that less thought goes into the <span class="italic">how</span>, but more into the <span class="italic">what</span> and <span class="italic">why</span>.</p>
+            <p class="flex flex-row gap-2 items-center"> 
+              <!-- <span aria-hidden="true" class="mr-1 inline-flex align-middle">
+                <svg stroke="currentColor" class="w-[1em] aspect-square shrink-0">
+                  <use href="icons/arrow-left.svg"></use>
+                </svg>
+              </span> -->
+              Click on a skill to learn more about it.
+            </p>
+          </div>
+        </div> 
+      </div>
+    </section>
+
+    <section id="work" class="grid sm:grid-cols-2 gap-4 p-4 sm:p-12">
       <div class="sm:h-screen sm:sticky top-0 grid place-items-center">
         <div class="flex flex-col gap-4 max-w-md">
-          <h3 class="text-3xl">Areas of <span class="text-primary">Practice</span></h3>
-          <p>Exercising skills for fluency, so that less thought goes into the <span class="italic">how</span>, but more into the <span class="italic">what</span> and <span class="italic">why</span>.</p>
+          <h3 class="text-3xl">Selected <span class="text-primary">Projects</span></h3>
         </div>
       </div>
       <div class="flex flex-col gap-4">
-        <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md min-h-32 flex flex-col gap-2">
-          <h4 class="text-xl">Working with CSS</h4>
-          <p class="text-sm">Learning raw, common CSS properties.</p>
-          <img src="img/css.jpg" alt="Example of styling a webpage with CSS" class="max-h-mt-4 rounded-md shadow-sm">
+        <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md flex flex-col gap-2">
+          <h4 class="text-xl">Project 1</h4>
+          <p class="text-sm">Short description of the project.</p>
+          <img class="image" src="img/motion.jpg" alt="Example of styling a webpage with CSS" class="max-h-mt-4 rounded-md shadow-sm">
         </div>
-        <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md min-h-32 flex flex-col gap-2">
-          <h4 class="text-xl">JavaScript</h4>
-          <p class="text-sm">Exploring motion and space by combining Javascript with CSS.</p>
-          <img src="img/motion.jpg" alt="JavaScript example exploring motion and animation" class="mt-4 rounded-md shadow-sm">
+        <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md flex flex-col gap-2">
+          <h4 class="text-xl">Project 2</h4>
+          <p class="text-sm">Short description of the project.</p>
         </div>
-        <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md min-h-32 flex flex-col gap-2">
-          <h4 class="text-xl">GitHub</h4>
-          <p class="text-sm">Version control to keep version history clear.</p>
-          <img src="img/branches.jpg" alt="Git branches representing version history" class="mt-4 rounded-md shadow-sm">
+        <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md flex flex-col gap-2">
+          <h4 class="text-xl">Project 3</h4>
+          <p class="text-sm">Short description of the project.</p>
         </div>
       </div>
     </section>
 
-    <section id="about" class="grid sm:grid-cols-2 gap-4 p-12">
+    <section id="about" class="grid sm:grid-cols-2 gap-4 p-4sm:p-12">
       <div class="sm:sticky top-[calc(var(--header-offset)_+_2rem)] sm:h-[calc(100dvh_-_var(--header-offset)_-_2rem)]">
-        <img src="img/designing.jpg" alt="A design process in progress" class="max-h-full rounded-md shadow-sm">
+        <img class="image" src="img/designing.jpg" alt="A design process in progress" class="max-h-full rounded-md shadow-sm">
       </div>
       <div class="flex flex-col gap-6 px-2 sm:px-12">
-        <h3 class="text-3xl">As a designer, why do <span class="text-primary">I even bother</span> investing learning to <span class="italic">code?</span></h3>
-        <p>First off, let's clarify, just because I can do both does not mean I am both. The defining difference is that while I can code and enjoy the satisfaction of buiding something on my own, I do not enjoy the process of coding; I like the prize, not the race. Design is different, I love the run, the training, the talk as well as the end result. Because of that, I focus my primary resources and offer my primary skills as a designer.</p>
+        <h3 class="text-3xl border-b-1 pb-2">As a designer, why do <span class="text-primary">I even bother</span> investing learning to <span class="italic">code?</span></h3>
+        <p>First off, let's clarify, while I can both code and design, I that does not mean I am both a developer and designer. The defining difference is that while I can code and enjoy the satisfaction of buiding something on my own, I do not enjoy the process of coding; I like the prize, not the race. Design is different, I love the run, the training, the talk as well as the end result. Because of that, I focus my primary resources and offer my primary skills as a designer.</p>
         <p>With that, in the age of AI, why bother learning CSS and coding? Designers should be able to vibe code, right? Such a mindset is like asking a ballet dancer to use a chainsaw. AI is a powerful too, but put in the hands of someone unfamiliar with not only coding practices, basic digital safety could result in inefficency and even unattended consequences. Thinking like a coder involves knowing what decisions make it easier for humans to read, how code can be written for certain team needs, and what to do when AI cannot understand the prompt or intended request.</p>
-        <p>I do not claim to know everything or be an experience coder. However, I do believe that understanding to basics of coding is important to my personal career and offer a willingness to learn in this area. Other benfits include:</p>
+        <p>I do not claim to know everything or be an experience coder. However, I do believe that understanding to basics of coding is important to my personal career and offer a willingness to learn in this area. Main benfits include:</p>
         <ul class="list-disc list-outside pl-5">
           <li>Frontend relief for coders focused on backend or API development</li>
           <li>Better communication with development teams</li>
@@ -94,45 +120,58 @@ date: 10/23/26
     </section>
     
     <section id="contact">
-      <a class="scramble group fixed left-[50%] top-[50%] -translate-1/2 flex align-center flex-wrap gap-[1ch] p-2 text-5xl" href="https://github.com/lillyanna-poorman" target="_blank" inert>
-        <p aria-label="Let's">
-          <span aria-hidden="true">L</span>
-          <span aria-hidden="true">e</span>
-          <span aria-hidden="true">t</span>
-          <span aria-hidden="true">'</span>
-          <span aria-hidden="true">s</span>
-        </p>
-        <p aria-label="Connect!">
-          <span aria-hidden="true">c</span>
-          <span aria-hidden="true">o</span>
-          <span aria-hidden="true">n</span>
-          <span aria-hidden="true">n</span>
-          <span aria-hidden="true">e</span>
-          <span aria-hidden="true">c</span>
-          <span aria-hidden="true">t</span>
-          <span aria-hidden="true">!</span>
-        </p>
-        <p aria-hidden="true" class="transition-transform duration-300 ease-out group-hover:translate-x-4">
-          <span aria-hidden="true">
-            <svg stroke="currentColor" class="w-[1em] h-[1em] shrink-0">
-              <use class="translate-1.5 scale-150" href="icons/arrow-right.svg"></use>
-            </svg>
-          </span>
-        </p>
-      </a>
+      <div class="contact-visibility group fixed left-[50%] top-[50%] -translate-1/2 flex flex-col gap-4 p-2">
+        <div class="unscramble">
+          <p aria-label="Want to chat about design & dreams?" class="gap-[.5ch]">
+            <span aria-hidden="true">Want</span>
+            <span aria-hidden="true">to</span>
+            <span aria-hidden="true">chat</span>
+            <span aria-hidden="true">about</span>
+            <span aria-hidden="true">design</span>
+            <span aria-hidden="true">&</span>
+            <span aria-hidden="true">dreams?</span>
+          </p>
+        </div>
+        <a id="contact-link" class="unscramble flex flex-wrap gap-[.75ch] text-5xl" href="https://github.com/lillyanna-poorman" target="_blank" inert>
+          <p aria-label="Let's">
+            <span aria-hidden="true">L</span>
+            <span aria-hidden="true">e</span>
+            <span aria-hidden="true">t</span>
+            <span aria-hidden="true">'</span>
+            <span aria-hidden="true">s</span>
+          </p>
+          <p aria-label="Connect!" class="text-primary">
+            <span aria-hidden="true">c</span>
+            <span aria-hidden="true">o</span>
+            <span aria-hidden="true">n</span>
+            <span aria-hidden="true">n</span>
+            <span aria-hidden="true">e</span>
+            <span aria-hidden="true">c</span>
+            <span aria-hidden="true">t</span>
+            <span aria-hidden="true">!</span>
+          </p>
+          <p aria-hidden="true" class="transition-transform duration-300 ease-out group-hover:translate-x-4">
+            <span aria-hidden="true">
+              <svg stroke="currentColor" class="w-[1em] aspect-square shrink-0">
+                <use class="translate-1.5 scale-150" href="icons/arrow-right.svg"></use>
+              </svg>
+            </span>
+          </p>
+        </a>
+      </div>
     </section>
   </main>
 
   <footer class="mt-2 text-center p-8 opacity-55 text-sm" ><p>© 2026 Lillyanna Poorman — Playground CSS</p></footer>
 
   <div id="styleToggleModel" class="fixed inset-0 z-100 grid place-items-center bg-black/50 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="styleToggleTitle" hidden>
-    <div class="max-w-lg rounded-lg bg-zinc-800 dark:bg-zinc-300 p-6 text-zinc-900 shadow-xl">
+    <div class="max-w-lg rounded-lg bg-zinc-300 dark:bg-zinc-800 p-6 shadow-xl">
       <h3 id="styleToggleTitle" class="mb-3 text-2xl border-b-1 pb-2">Notice</h3>
-      <p class="mb-6">This button removes most of the styles from this page so you can compare how much CSS contributes to the design. To restore the styles, use the paintbrush button again.</p>
+      <p class="mb-6">This button removes most of the styles from this page so you can compare how much CSS contributes to the design. To restore the styles, either refresh the page or use the paintbrush button again, which would be located at the beginning of the page.</p>
       <p>Want to see what the webpage looks like without style?</p>
       <div class="flex justify-end gap-3 pt-4">
-        <button id="styleToggleClose" class="hover:bg-primary p-1 border-1 rounded-full px-4">No</button>
-        <button id="proceedStyleToggle" class="hover:bg-primary p-1 border-1 rounded-full px-4">Yes, Proceed</button>
+        <button id="styleToggleClose" class="hover:bg-hover p-1 border-1 rounded-full px-4">No</button>
+        <button id="proceedStyleToggle" class="hover:bg-hover p-1 border-1 rounded-full px-4 bg-primary">Yes, Proceed</button>
       </div>
     </div>
   </div>
