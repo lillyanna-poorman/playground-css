@@ -9,6 +9,9 @@ date: 10/23/26
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script id="tailwind-styles" src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="obj-1/scrub-field.css">
+<link rel="stylesheet" href="obj-2/folder-float.css">
+<link rel="stylesheet" href="obj-3/pulse-heart.css">
 <style id="custom-styles" type="text/tailwindcss">
   @custom-variant dark (&:where(.dark, .dark *));
   @theme {
@@ -18,7 +21,7 @@ date: 10/23/26
   }
 </style>
 </head>
-<body id="background-image" class="dark bg-zinc-300 dark:bg-zinc-800 dark:text-zinc-100 text-lg transition-colors duration-500 ease-in-out">
+<body id="background-image" class="dark bg-zinc-300 dark:bg-zinc-800 dark:text-zinc-100 text-lg transition-colors duration-500 ease-in-out justify-self-center">
   
   <div id="hero" class="min-h-screen grid grid-col-1 justify-items-center items-end">
     <h1 class="hero-move text-6xl text-center tracking-wide font-brand">Playground CSS</h1>
@@ -52,7 +55,7 @@ date: 10/23/26
 
   <main class="min-h-[200dvh]">
 
-    <section id="skills" class="relative grid sm:grid-cols-2 gap-16 p-12">     
+    <section id="skills" class="min-h-[calc(100dvh_-_var(--header-offset))] relative grid sm:grid-cols-2 gap-16 p-12 items-center">     
       <div class="relative border-1 orbit mx-auto mb-4 aspect-square w-[min(100%,380px)] rounded-full">
         <div id="orbitTrack" class="absolute inset-0">
           <button class="orbit-badge" data-skill="0" aria-label="HTML" aria-pressed="false" style="--angle: 0deg"><img src="icons/html.png" alt=""></button>
@@ -61,68 +64,137 @@ date: 10/23/26
           <button class="orbit-badge" data-skill="3" aria-label="Git" aria-pressed="false" style="--angle: 270deg"><img src="icons/git.png" alt=""></button>
         </div>
       </div>
-      <div class="sm:sticky top-0 grid place-items-center">
-        <div class="flex flex-col gap-4 max-w-md">
-          <h3 id="featuredTitle" class="text-3xl border-b-2 pb-2">Areas of Practice</h3>
-          <div id="featuredDescription" class="flex flex-col gap-2">
-            <p> Exercising skills for fluency, so that less thought goes into the <span class="italic">how</span>, but more into the <span class="italic">what</span> and <span class="italic">why</span>.</p>
-            <p class="flex flex-row gap-2 items-center"> 
-              <!-- <span aria-hidden="true" class="mr-1 inline-flex align-middle">
-                <svg stroke="currentColor" class="w-[1em] aspect-square shrink-0">
-                  <use href="icons/arrow-left.svg"></use>
-                </svg>
-              </span> -->
-              Click on a skill to learn more about it.
-            </p>
-          </div>
-        </div> 
-      </div>
+      <div class="flex flex-col gap-4 max-w-md">
+        <h3 id="featuredTitle" class="text-3xl border-b-2 pb-2">Areas of Practice</h3>
+        <div id="featuredDescription" class="flex flex-col gap-2">
+          <p> Exercising skills for fluency, so that less thought goes into the <span class="italic">how</span>, but more into the <span class="italic">what</span> and <span class="italic">why</span>.</p>
+          <p class="flex flex-row gap-2 items-center"> 
+            Click on a skill to learn more about it.
+          </p>
+        </div>
+      </div>       
     </section>
 
-    <section id="work" class="grid sm:grid-cols-2 gap-4 p-4 sm:p-12">
+    <section id="work" class="grid sm:grid-cols-2 gap-4 p-4 sm:p-12 mb-12">
       <div class="sm:h-screen sm:sticky top-0 grid place-items-center">
         <div class="flex flex-col gap-4 max-w-md">
-          <h3 class="text-3xl">Selected <span class="text-primary">Projects</span></h3>
+          <h3 class="text-3xl">Experiments and <span class="text-primary">Studies</span></h3>
+          <p>These interaction studies were recreated with AI assistance and inspired by publicly available examples. The purpose of these experiements was educational, helping me to understand implimentation techniques, svg properties, and reading and modifying code.</p>
         </div>
       </div>
       <div class="flex flex-col gap-4">
-        <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md flex flex-col gap-2">
-          <h4 class="text-xl">Project 1</h4>
-          <p class="text-sm">Short description of the project.</p>
-          <img class="image" src="img/motion.jpg" alt="Example of styling a webpage with CSS" class="max-h-mt-4 rounded-md shadow-sm">
+    <!-- Object-1 -->
+        <div id="obj-1" class="min-h-100 bg-zinc-400/30 p-4 rounded-md flex flex-col gap-2">
+          <div class="scrub-demo w-full min-h-[280px] flex flex-col justify-between gap-4 text-inherit select-none">
+            <div class="scrub-demo__header flex items-end justify-between gap-4">
+              <div>
+                <span class="scrub-demo__eyebrow block mb-1 text-[.65rem] font-bold tracking-[.18em] uppercase opacity-55">Micro interaction</span>
+                <h4 class="scrub-demo__title m-0 text-xl leading-[1.1]">Scrub Field</h4>
+              </div>
+              <button class="scrub-demo__reset rounded-full border border-current px-3 py-1.5 bg-transparent text-inherit cursor-pointer transition duration-150 hover:bg-primary hover:text-white hover:-translate-y-px" type="button">Reset</button>
+            </div>
+            <div class="scrub-field relative min-h-32 grid place-items-center mx-2 cursor-ew-resize touch-pan-y group" data-scrub-field>
+              <span class="scrub-field__hint absolute top-0 left-1/2 text-[.65rem] tracking-[.08em] uppercase opacity-0 -translate-x-1/2 translate-y-1 transition duration-150 group-hover:opacity-55 group-hover:translate-y-0" aria-hidden="true">Drag horizontally</span>
+              <button class="scrub-field__chip relative z-2 min-w-[108px] h-[62px] inline-flex items-baseline justify-center gap-1 border border-primary/70 rounded-2xl bg-primary/10 shadow-lg shadow-primary/20 text-inherit tabular-nums cursor-ew-resize transition-[transform,scale] duration-200" type="button" aria-label="Current value: 42. Click to type a value">
+                <span class="scrub-field__number text-[2rem] font-bold leading-none">42</span>
+                <span class="scrub-field__unit text-xs font-bold opacity-55">px</span>
+              </button>
+              <input class="scrub-field__input z-3 w-[108px] h-[62px] border border-primary rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-3xl font-bold tabular-nums text-center outline-none select-text" type="text" inputmode="numeric" pattern="[0-9]*" aria-label="Enter a value" hidden>
+              <div class="scrub-field__range absolute right-[10%] bottom-1 left-[10%] h-[18px] text-inherit opacity-50" aria-hidden="true">
+                <span class="scrub-field__track absolute right-0 bottom-1.5 left-0 h-0.5 rounded-full bg-[linear-gradient(90deg,var(--color-primary)_0_var(--scrub-progress),transparent_var(--scrub-progress))]">
+                  <span class="absolute left-[var(--scrub-progress)] top-1/2 w-[7px] h-[7px] border-2 border-primary rounded-full bg-zinc-100 dark:bg-zinc-800 -translate-x-1/2 -translate-y-1/2"></span>
+                </span>
+                <span class="scrub-field__limit scrub-field__limit--min absolute bottom-[-2px] left-0 text-[.75rem] tabular-nums">0</span>
+                <span class="scrub-field__limit scrub-field__limit--max absolute bottom-[-2px] right-0 text-[.75rem] tabular-nums">100</span>
+              </div>
+            </div>
+            <p class="scrub-demo__footer m-0 text-center opacity-65">Drag to scrub or click the chip to type</p>
+          </div>
         </div>
-        <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md flex flex-col gap-2">
-          <h4 class="text-xl">Project 2</h4>
-          <p class="text-sm">Short description of the project.</p>
+    <!-- Object-2 -->
+        <div id="obj-2" class="min-h-100 bg-zinc-400/30 p-4 rounded-md flex flex-col gap-2">
+          <div class="folder-demo w-full min-h-[280px] flex flex-col items-stretch justify-between gap-4 text-inherit">
+            <div class="folder-demo__header flex items-end justify-between gap-4">
+              <div>
+                <span class="folder-demo__eyebrow block mb-1 text-[.65rem] font-bold tracking-[.18em] uppercase opacity-55">Micro interaction</span>
+                <h4 class="folder-demo__title m-0 text-xl leading-[1.1]">Folder Float</h4>
+              </div>
+              <button class="folder-demo__toggle min-w-[4.25rem] rounded-full border border-current px-3 py-1.5 bg-transparent text-inherit cursor-pointer transition duration-150 hover:bg-primary hover:text-white hover:-translate-y-px" type="button" aria-expanded="false" aria-controls="folder-notes">Open</button>
+            </div>
+            <button class="folder relative w-[min(220px,68%)] h-[154px] m-auto border-0 bg-transparent text-inherit cursor-pointer [perspective:800px] [isolation:isolate]" type="button" aria-expanded="false" aria-label="Open floating notes">
+              <span class="folder__cloud absolute z-3 left-1/2 bottom-[63px] w-[156px] h-[118px] -translate-x-1/2 pointer-events-none" id="folder-notes" aria-hidden="true">
+                <span class="folder__note folder__note--one absolute left-[51px] bottom-1 flex flex-col gap-2 w-[54px] h-[68px] p-[13px_9px] border border-primary/55 rounded-[5px] bg-stone-100 dark:bg-zinc-700 shadow-md opacity-0">
+                  <span class="folder__line block w-full h-[3px] rounded-full bg-current opacity-30"></span>
+                  <span class="folder__line folder__line--short block w-[65%] h-[3px] rounded-full bg-current opacity-30"></span>
+                </span>
+                <span class="folder__note folder__note--two absolute left-[18px] bottom-0.5 flex flex-col gap-2 w-[54px] h-[68px] p-[13px_9px] border border-primary/55 rounded-[5px] bg-stone-100 dark:bg-zinc-700 shadow-md opacity-0">
+                  <span class="folder__line block w-full h-[3px] rounded-full bg-current opacity-30"></span>
+                  <span class="folder__line block w-full h-[3px] rounded-full bg-current opacity-30"></span>
+                </span>
+                <span class="folder__note folder__note--three absolute right-[17px] bottom-0.5 flex flex-col gap-2 w-[54px] h-[68px] p-[13px_9px] border border-primary/55 rounded-[5px] bg-stone-100 dark:bg-zinc-700 shadow-md opacity-0">
+                  <span class="folder__line folder__line--short block w-[65%] h-[3px] rounded-full bg-current opacity-30"></span>
+                  <span class="folder__line block w-full h-[3px] rounded-full bg-current opacity-30"></span>
+                </span>
+              </span>
+              <span class="folder__back absolute z-1 left-[8%] right-[8%] bottom-[12%] h-[98px] border-2 border-primary rounded-[8px_12px_12px_12px] bg-primary/20 shadow-lg shadow-primary/20" aria-hidden="true"></span>
+              <span class="folder__front absolute z-4 left-[4%] right-[4%] bottom-[5%] h-[82px] border-2 border-primary rounded-[8px_12px_12px_12px] bg-primary/60 dark:bg-primary/65" aria-hidden="true">
+                <span class="folder__tab absolute -top-[18px] left-[14px] w-[74px] h-6 border-2 border-primary border-b-0 rounded-t-lg bg-inherit text-[.65rem] font-bold leading-5 text-center">Notes</span>
+              </span>
+            </button>
+            <p class="folder-demo__hint m-0 text-center opacity-65">Hover, focus, or press to float the notes</p>
+          </div>
         </div>
-        <div class="min-h-80 bg-zinc-400/30 p-4 rounded-md flex flex-col gap-2">
-          <h4 class="text-xl">Project 3</h4>
-          <p class="text-sm">Short description of the project.</p>
+    <!-- Object-3 -->
+        <div id="obj-3" class="min-h-100 bg-zinc-400/30 p-4 rounded-md flex flex-col gap-2">
+          <div class="pulse-demo w-full min-h-[280px] flex flex-col items-stretch justify-between gap-4 text-inherit">
+            <div class="pulse-demo__header flex items-end justify-between gap-4">
+              <div>
+                <span class="pulse-demo__eyebrow block mb-1 text-[.65rem] font-bold tracking-[.18em] uppercase opacity-55">Micro interaction</span>
+                <h4 class="pulse-demo__title m-0 text-xl leading-[1.1]">Pulse Heart</h4>
+              </div>
+              <button class="pulse-demo__reset rounded-full border border-current px-3 py-1.5 bg-transparent text-inherit cursor-pointer transition duration-150 hover:bg-primary hover:text-white hover:-translate-y-px" type="button">Reset</button>
+            </div>
+            <button class="pulse-heart relative min-w-[132px] h-[62px] inline-flex items-center justify-center gap-3 self-center my-auto border border-primary/40 rounded-full bg-primary/10 text-inherit cursor-pointer overflow-hidden isolate transition-[transform,background-color,border-color] duration-200 hover:-translate-y-0.5 active:scale-[.96] aria-pressed:border-primary aria-pressed:bg-primary/15 before:content-[''] before:absolute before:z-[-1] before:-inset-px before:rounded-[inherit] before:bg-primary before:opacity-0 before:scale-x-0 before:origin-left" type="button" aria-pressed="false" aria-label="Like, 128 likes">
+              <span class="pulse-heart__icon grid w-[27px] h-[27px] shrink-0 place-items-center text-primary transition duration-150" aria-hidden="true">
+                <svg class="w-full h-full fill-current origin-center drop-shadow-[0_5px_10px_color-mix(in_srgb,var(--color-primary)_28%,transparent)]" viewBox="0 0 24 24">
+                  <path d="M12 21s-7.2-4.35-9.45-8.45C.55 8.85 2.55 4.5 6.85 4.5c2.25 0 3.75 1.3 5.15 3.15 1.4-1.85 2.9-3.15 5.15-3.15 4.3 0 6.3 4.35 4.3 8.05C19.2 16.65 12 21 12 21Z"></path>
+                </svg>
+              </span>
+              <span class="pulse-heart__count min-w-[3ch] text-base font-extrabold tabular-nums text-left transition-colors duration-150">128</span>
+            </button>
+            <p class="pulse-demo__footer m-0 text-center opacity-65">Tap to like and watch the count pulse</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="grid sm:grid-cols-2 gap-4 p-4sm:p-12">
-      <div class="sm:sticky top-[calc(var(--header-offset)_+_2rem)] sm:h-[calc(100dvh_-_var(--header-offset)_-_2rem)]">
-        <img class="image" src="img/designing.jpg" alt="A design process in progress" class="max-h-full rounded-md shadow-sm">
-      </div>
-      <div class="flex flex-col gap-6 px-2 sm:px-12">
-        <h3 class="text-3xl border-b-1 pb-2">As a designer, why do <span class="text-primary">I even bother</span> investing learning to <span class="italic">code?</span></h3>
-        <p>First off, let's clarify, while I can both code and design, I that does not mean I am both a developer and designer. The defining difference is that while I can code and enjoy the satisfaction of buiding something on my own, I do not enjoy the process of coding; I like the prize, not the race. Design is different, I love the run, the training, the talk as well as the end result. Because of that, I focus my primary resources and offer my primary skills as a designer.</p>
-        <p>With that, in the age of AI, why bother learning CSS and coding? Designers should be able to vibe code, right? Such a mindset is like asking a ballet dancer to use a chainsaw. AI is a powerful too, but put in the hands of someone unfamiliar with not only coding practices, basic digital safety could result in inefficency and even unattended consequences. Thinking like a coder involves knowing what decisions make it easier for humans to read, how code can be written for certain team needs, and what to do when AI cannot understand the prompt or intended request.</p>
-        <p>I do not claim to know everything or be an experience coder. However, I do believe that understanding to basics of coding is important to my personal career and offer a willingness to learn in this area. Main benfits include:</p>
-        <ul class="list-disc list-outside pl-5">
-          <li>Frontend relief for coders focused on backend or API development</li>
-          <li>Better communication with development teams</li>
-          <li>Design understanding that considers technical constraints</li>
+    <section id="about" class="grid md:grid-cols-2 gap-4"> 
+      <img class="image rounded-md shadow-sm md:sticky top-[calc(var(--header-offset))] h-[calc(100dvh_-_var(--header-offset))]" src="img/designing.jpg" alt="A design process in progress">     
+      <div class="flex flex-col gap-6 p-2 sm:p-12">
+        <h3 class="text-3xl border-b-1 pb-2">Design practice through <span class="text-primary">Code</span></h3>
+        <p>Playground CSS is simple a personal project where I experiement the fundimental concepts of CSS, supported by HTML, Tailwind, and JavaScript. It gives me a space to explore design concepts and user interactions such as:</p>
+        <ul class="list-disc list-outside pl-15">
+          <li>Layouts and typography</li>
+          <li>Color Systems and theme switching</li>
+          <li>Responsive Design</li>
+          <li>Scroll-driven animation</li>
+          <li>Interactive UI components</li>
         </ul>
+        <p>Experimenting with these elements allow me to prototype ideas that can be difficult to replicate in Figma or other design tools. By building and testing interactions directly in code, I can explore UX/UI principles in a more realistic envirement while becoming increasingly comfortable working with source code.</p>
+        <p>This experience helps me:</p>
+        <ul class="list-disc list-outside pl-15">
+          <li>Provide frontend support for developers focused on backend systems or complex logic</li>
+          <li>Communicate more effectively with cross-functional teams by understanding development terminology and workflows</li>
+          <li>Create designs that account for tecnical constraints and impementation realities</li>
+        </ul>
+        <p>Ultimately, this project helps me become a more effective UX designer, collaborator, and problem solver by bridging the gap between design and development.</p>
       </div>
     </section>
     
     <section id="contact">
       <div class="contact-visibility group fixed left-[50%] top-[50%] -translate-1/2 flex flex-col gap-4 p-2">
         <div class="unscramble">
-          <p aria-label="Want to chat about design & dreams?" class="gap-[.5ch]">
+          <p aria-label="Want to chat about design & dreams?" class="flex flex-wrap gap-[.5ch]">
             <span aria-hidden="true">Want</span>
             <span aria-hidden="true">to</span>
             <span aria-hidden="true">chat</span>
@@ -177,5 +249,8 @@ date: 10/23/26
   </div>
 
   <script src="script.js"></script>
+  <script src="obj-1/scrub-field.js"></script>
+  <script src="obj-2/folder-float.js"></script>
+  <script src="obj-3/pulse-heart.js"></script>
 </body>
 </html>

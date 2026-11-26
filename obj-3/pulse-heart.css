@@ -1,0 +1,60 @@
+.pulse-heart::before {
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 380ms cubic-bezier(0.2, 0.85, 0.25, 1), opacity 120ms ease;
+}
+
+.pulse-heart.is-liked::before {
+  opacity: 0.08;
+  transform: scaleX(1);
+}
+
+.pulse-heart.is-liked .pulse-heart__icon {
+  animation: pulse-heart-beat 520ms cubic-bezier(0.2, 0.85, 0.25, 1);
+}
+
+.pulse-heart.is-contracting .pulse-heart__icon svg {
+  animation: pulse-heart-contract 180ms ease-in forwards;
+}
+
+.pulse-heart.is-pulsing .pulse-heart__icon svg {
+  animation: pulse-heart-pulse 520ms cubic-bezier(0.2, 0.85, 0.25, 1);
+}
+
+.pulse-heart.is-ticking .pulse-heart__count {
+  animation: pulse-heart-count 320ms cubic-bezier(0.2, 0.85, 0.25, 1);
+}
+
+@keyframes pulse-heart-contract {
+  0% { transform: scale(1); }
+  100% { transform: scale(0.08); }
+}
+
+@keyframes pulse-heart-pulse {
+  0% { transform: scale(0.08) rotate(-8deg); }
+  45% { transform: scale(1.32) rotate(5deg); }
+  72% { transform: scale(0.86) rotate(-2deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+@keyframes pulse-heart-beat {
+  45%, 72% { scale: 1.18; }
+  100% { scale: 1; }
+}
+
+@keyframes pulse-heart-count {
+  0% { transform: translateY(8px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-heart,
+  .pulse-heart::before,
+  .pulse-heart__icon,
+  .pulse-heart__count,
+  .pulse-demo__reset {
+    animation: none !important;
+    transition: none;
+  }
+}

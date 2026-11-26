@@ -1,0 +1,21 @@
+/* .scrub-field.is-scrubbing .scrub-field__hint {
+  opacity: 0.55;
+  transform: translate(-50%, 0);
+} */
+
+.scrub-field__chip {
+  transform: translateX(var(--rubber-offset));
+}
+
+.scrub-field.is-scrubbing .scrub-field__chip {
+  scale: 1.06;
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrub-field__chip,
+  .scrub-demo__reset,
+  /* .scrub-field__hint {
+    transition: none;
+  } */
+}
