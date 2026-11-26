@@ -1,0 +1,26 @@
+{
+  "name": "playground-css",
+  "version": "1.0.0",
+  "description": "This project is a small single-page CSS playground and personal portfolio landing page built with HTML and custom CSS, using Tailwind via CDN for styling utilities.",
+  "main": "script.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./tailwind.input.css -o ./tailwind.css --minify",
+    "watch:css": "tailwindcss -i ./tailwind.input.css -o ./tailwind.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lillyanna-poorman/playground-css.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/lillyanna-poorman/playground-css/issues"
+  },
+  "homepage": "https://github.com/lillyanna-poorman/playground-css#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.5",
+    "tailwindcss": "^4.3.5"
+  }
+}

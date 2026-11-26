@@ -7,19 +7,11 @@ date: 10/23/26
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<script id="tailwind-styles" src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link rel="stylesheet" href="tailwind.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="obj-1/scrub-field.css">
 <link rel="stylesheet" href="obj-2/folder-float.css">
 <link rel="stylesheet" href="obj-3/pulse-heart.css">
-<style id="custom-styles" type="text/tailwindcss">
-  @custom-variant dark (&:where(.dark, .dark *));
-  @theme {
-  --color-primary: hsl(186deg 25% 40%);
-  --color-hover: hsl(186deg 30% 50%);
-  --font-brand: "Brush Script MT", cursive;
-  }
-</style>
 </head>
 <body id="background-image" class="dark bg-zinc-300 dark:bg-zinc-800 dark:text-zinc-100 text-lg transition-colors duration-500 ease-in-out justify-self-center">
   
@@ -68,18 +60,17 @@ date: 10/23/26
         <h3 id="featuredTitle" class="text-3xl border-b-2 pb-2">Areas of Practice</h3>
         <div id="featuredDescription" class="flex flex-col gap-2">
           <p> Exercising skills for fluency, so that less thought goes into the <span class="italic">how</span>, but more into the <span class="italic">what</span> and <span class="italic">why</span>.</p>
-          <p class="flex flex-row gap-2 items-center"> 
-            Click on a skill to learn more about it.
-          </p>
+          <p class="flex flex-row gap-2 items-center">Click on a skill to learn more about it.</p>
         </div>
       </div>       
     </section>
 
     <section id="work" class="grid sm:grid-cols-2 gap-4 p-4 sm:p-12 mb-12">
       <div class="sm:h-screen sm:sticky top-0 grid place-items-center">
-        <div class="flex flex-col gap-4 max-w-md">
+        <div class="flex flex-col gap-8 max-w-md">
           <h3 class="text-3xl">Experiments and <span class="text-primary">Studies</span></h3>
           <p>These interaction studies were recreated with AI assistance and inspired by publicly available examples. The purpose of these experiements was educational, helping me to understand implimentation techniques, svg properties, and reading and modifying code.</p>
+          <a href="https://www.reactbits.dev/" target="_blank" class="border px-4 py-2 rounded-full w-fit hover:bg-primary">Inspiration Website: ReactBits</a>
         </div>
       </div>
       <div class="flex flex-col gap-4">
